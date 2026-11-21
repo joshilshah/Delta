@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-ink: #111827;
+  --color-ink-soft: #4b5563;
+  --color-muted: #6b7280;
+  --color-canvas: #f9fafb;
+  --color-line: #e5e7eb;
+  --color-accent: #2563eb;
+  --color-accent-dark: #1d4ed8;
+  --color-success: #16a34a;
+  --color-danger: #dc2626;
+}
+
+@layer base {
+  body { @apply bg-canvas text-ink font-sans antialiased; }
+  h1, h2, h3 { @apply tracking-tight; }
+}
+
+@layer components {
+  .card { @apply rounded-2xl border border-line bg-white p-5 shadow-sm sm:p-6; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary, .btn-accent, .btn-success, .btn-outline, .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition
+      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary { @apply bg-ink text-white hover:bg-black; }
+  .btn-accent { @apply bg-accent text-white hover:bg-accent-dark; }
+  .btn-success { @apply bg-success text-white hover:bg-green-700; }
+  .btn-outline { @apply border border-line bg-white text-ink hover:bg-canvas; }
+  .btn-danger { @apply border border-red-200 bg-white text-danger hover:bg-red-50; }
+  .input { @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition
+    placeholder:text-gray-400 focus:border-accent focus:ring-4 focus:ring-blue-100 disabled:bg-canvas; }
+  .label { @apply mb-1.5 block text-sm font-medium text-ink-soft; }
+  .skeleton { @apply animate-pulse rounded-xl bg-gray-200; }
+}
